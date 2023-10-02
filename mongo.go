@@ -61,6 +61,18 @@ func (c *Client) InsertMany(database string, collection string, docs []any) erro
 	return nil
 }
 
+func (c *Client) CountDocuments(database string, collection string, filter interface{}, limit int64) int64 {
+        log.Printf("Count documents")
+        db := c.client.Database(database)
+        col := db.Collection(collection)
+        log.Print(filter_is, filter)
+        count, err := col.CountDocuments(context.TODO(), filter, options.Count().SetLimit(limit))
+        if err != nil {
+                log.Fatal(err)
+        }
+        log.Printf("count documents %v", count)
+        return count
+}
 
 func (c *Client) Find(database string, collection string, filter interface{}, limit int64) []bson.M{
 	db := c.client.Database(database)
