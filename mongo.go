@@ -62,11 +62,11 @@ func (c *Client) InsertMany(database string, collection string, docs []any) erro
 }
 
 
-func (c *Client) Find(database string, collection string, filter interface{}) []bson.M{
+func (c *Client) Find(database string, collection string, filter interface{}, limit int64) []bson.M{
 	db := c.client.Database(database)
 	col := db.Collection(collection)
 	log.Print(filter_is, filter)
-	cur, err := col.Find(context.TODO(), filter)
+	cur, err := col.Find(context.TODO(), filter, options.Find().SetLimit(limit))
 	if err != nil {
 		log.Fatal(err)
 	}
