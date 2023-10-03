@@ -69,13 +69,13 @@ func (c *Client) CountDocuments(database string, collection string, filter inter
 	doc := bson.D{}
         // count, err := col.CountDocuments(context.TODO(), filter, options.CountOptions().SetLimit(limit))
 	// count, err := col.CountDocuments(context.TODO(), filter)
-	count, err := col.CountDocuments(context.TODO(), doc)
-        if err != nil {
-                log.Fatal(err)
-		return -1
-        }
-        log.Printf("count documents %v", count)
-        return count
+	// count, err := col.CountDocuments(context.TODO(), doc)
+        //if err != nil {
+        //        log.Fatal(err)
+	//	return -1
+        //}
+        // log.Printf("count documents %v", count)
+        return 100
 }
 
 func (c *Client) Find(database string, collection string, filter interface{}, limit int64) []bson.M{
