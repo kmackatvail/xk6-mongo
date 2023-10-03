@@ -63,10 +63,10 @@ func (c *Client) InsertMany(database string, collection string, docs []any) erro
 
 func (c *Client) CountDocuments(database string, collection string, filter interface{}, limit int64) int64 {
         log.Printf("Count documents")
-        db := c.client.Database(database)
-        col := db.Collection(collection)
-        log.Print(filter_is, filter)
-	doc := bson.D{}
+        // db := c.client.Database(database)
+        // col := db.Collection(collection)
+        // log.Print(filter_is, filter)
+	// doc := bson.D{}
         // count, err := col.CountDocuments(context.TODO(), filter, options.CountOptions().SetLimit(limit))
 	// count, err := col.CountDocuments(context.TODO(), filter)
 	// count, err := col.CountDocuments(context.TODO(), doc)
