@@ -62,7 +62,7 @@ func (c *Client) InsertMany(database string, collection string, docs []any) erro
 }
 
 func (c *Client) CountDocuments(database string, collection string, filter interface{}, limit int64) error {
-        return nill
+        return nil
 }
 
 func (c *Client) Find(database string, collection string, filter interface{}, limit int64) []bson.M{
