@@ -61,7 +61,7 @@ func (c *Client) InsertMany(database string, collection string, docs []any) erro
 	return nil
 }
 
-func (c *Client) CountDocuments(database string, collection string, filter interface{}, limit int64) (int64, error) {
+func (c *Client) CountDocuments(database string, collection string, filter interface{}, limit int64) int64 {
         log.Printf("Count documents")
         db := c.client.Database(database)
         col := db.Collection(collection)
@@ -71,7 +71,8 @@ func (c *Client) CountDocuments(database string, collection string, filter inter
 	// count, err := col.CountDocuments(context.TODO(), filter)
 	count, err := col.CountDocuments(context.TODO(), doc)
         if err != nil {
-                return err
+                log.Fatal(err)
+		return -1
         }
         log.Printf("count documents %v", count)
         return count
