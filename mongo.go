@@ -66,8 +66,10 @@ func (c *Client) CountDocuments(database string, collection string, filter inter
         db := c.client.Database(database)
         col := db.Collection(collection)
         log.Print(filter_is, filter)
+	doc := bson.D{}
         // count, err := col.CountDocuments(context.TODO(), filter, options.CountOptions().SetLimit(limit))
-	count, err := col.CountDocuments(context.TODO(), filter)
+	// count, err := col.CountDocuments(context.TODO(), filter)
+	count, err := col.CountDocuments(context.TODO(), doc)
         if err != nil {
                 log.Fatal(err)
         }
